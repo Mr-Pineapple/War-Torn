@@ -8,6 +8,11 @@ public class MovementManager : MonoBehaviour {
     float hzInput, vInput;
     CharacterController controller;
 
+    [SerializeField] float groundYOffset;
+    [SerializeField] LayerMask groundMask;
+    Vector3 spherePosition;
+
+
     void Start() {
         controller = GetComponent<CharacterController>();
     }
@@ -21,6 +26,15 @@ public class MovementManager : MonoBehaviour {
 
         direction = transform.forward * vInput + transform.right * hzInput;
         controller.Move(direction * moveSpeed * Time.deltaTime);
+    }
+
+    bool IsGrounded() {
+        spherePosition = new Vector3(transform.position.x, transform.position.y - groundYOffset, transform.position.z);
+        if (Physics.CheckSphere(spherePosition, controller.radius - 0.05f, groundMask)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }

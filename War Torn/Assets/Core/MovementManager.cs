@@ -12,12 +12,15 @@ public class MovementManager : MonoBehaviour {
     [SerializeField] LayerMask groundMask;
     Vector3 spherePosition;
 
+    [SerializeField] float gravity = -9.81f;
+    Vector3 velocity;
 
     void Start() {
         controller = GetComponent<CharacterController>();
     }
     void Update() {
-            GetDirectionAndMove();
+        GetDirectionAndMove();
+        Gravity();
     }
 
     void GetDirectionAndMove() {
@@ -37,4 +40,13 @@ public class MovementManager : MonoBehaviour {
         }
     }
 
+    void Gravity() {
+        if (!IsGrounded()) {
+            velocity.y += gravity * Time.deltaTime;
+        } else if (velocity.y < 0) {
+            velocity.y = -2;
+        }
+
+        controller.Move(velocity * Time.deltaTime);
+    }
 }

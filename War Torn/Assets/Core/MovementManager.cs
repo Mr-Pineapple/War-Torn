@@ -49,4 +49,10 @@ public class MovementManager : MonoBehaviour {
 
         controller.Move(velocity * Time.deltaTime);
     }
+
+    void OnDrawGizmos() {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(spherePosition, controller.radius - 0.05f);
+    }
+
 }

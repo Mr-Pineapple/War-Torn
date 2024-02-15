@@ -1,19 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Cinemachine;
 
 public class CameraAimManager : MonoBehaviour {
-    public Cinemachine.AxisState xAxis, yAxis;
+    [SerializeField] float mouseSensitivity = 1;
+    float xAxis, yAxis;
     [SerializeField] Transform cameraFollowPosition;
 
     void Update() {
-        xAxis.Update(Time.deltaTime);
-        yAxis.Update(Time.deltaTime);
+        xAxis += Input.GetAxisRaw("Mouse X") * mouseSensitivity;
+        yAxis -= Input.GetAxisRaw("Mouse Y") * mouseSensitivity;
+        yAxis = Mathf.Clamp(yAxis, -80, 80);
     }
 
     void LateUpdate() {
-        cameraFollowPosition.localEulerAngles = new Vector3(yAxis.Value, cameraFollowPosition.localEulerAngles.y, cameraFollowPosition.localEulerAngles.z);
-        transform.eulerAngles = new Vector3(transform.eulerAngles.x, xAxis.Value, transform.eulerAngles.z);
+        cameraFollowPosition.localEulerAngles = new Vector3(yAxis, cameraFollowPosition.localEulerAngles.y, cameraFollowPosition.localEulerAngles.z);
+        transform.eulerAngles = new Vector3(transform.eulerAngles.x, xAxis, transform.eulerAngles.z);
     }
 }

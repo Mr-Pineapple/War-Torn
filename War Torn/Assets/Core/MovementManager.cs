@@ -1,26 +1,41 @@
 using UnityEngine;
 
 public class MovementManager : MonoBehaviour {
-    public float moveSpeed = 3;
-    [HideInInspector] public Vector3 direction;
-    float hzInput, vInput;
-    CharacterController controller;
+    #region Movement
+    public float currentMoveSpeed;
+    public float walkSpeed = 3, walkBackSpeed = 2;
+    public float runSpeed = 7, runBackSpeed = 5;
+    public float crouchSpeed = 2, crouchBackSpeed = 1;
 
+    [HideInInspector] public Vector3 direction;
+    [HideInInspector] public float hzInput, vInput;
+    CharacterController controller;
+    #endregion
+
+    #region GroundChecker
     [SerializeField] float groundYOffset;
     [SerializeField] LayerMask groundMask;
     Vector3 spherePosition;
+    #endregion
 
+    #region Gravity
     [SerializeField] float gravity = -9.81f;
     Vector3 velocity;
+    #endregion
 
+    #region Movement States
     MovementBaseState currentState;
     public IdleState Idle = new IdleState();
     public WalkState Walk = new WalkState();
     public RunState Run = new RunState();
     public CrouchState Crouch = new CrouchState();
+    
+    [HideInInspector] public Animator animator;
+    #endregion
 
     //Currently only used to get and set the CharacterController
     void Start() {
+        animator = GetComponentInChildren<Animator>();
         controller = GetComponent<CharacterController>();
         SwitchState(Idle);
     }
@@ -28,6 +43,9 @@ public class MovementManager : MonoBehaviour {
     void Update() {
         GetDirectionAndMove();
         Gravity();
+
+        animator.SetFloat("horizontalInput", hzInput);
+        animator.SetFloat("verticalInput", vInput);
 
         currentState.UpdateState(this);
     }
@@ -43,7 +61,7 @@ public class MovementManager : MonoBehaviour {
         vInput = Input.GetAxis("Vertical");
 
         direction = transform.forward * vInput + transform.right * hzInput;
-        controller.Move(direction.normalized * moveSpeed * Time.deltaTime);
+        controller.Move(direction.normalized * currentMoveSpeed * Time.deltaTime);
     }
 
     //Checks if the player is on the ground

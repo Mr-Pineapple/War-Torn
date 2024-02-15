@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MovementManager : MonoBehaviour {
@@ -15,14 +13,28 @@ public class MovementManager : MonoBehaviour {
     [SerializeField] float gravity = -9.81f;
     Vector3 velocity;
 
+    MovementBaseState currentState;
+    public IdleState Idle = new IdleState();
+    public WalkState Walk = new WalkState();
+    public RunState Run = new RunState();
+    public CrouchState Crouch = new CrouchState();
+
     //Currently only used to get and set the CharacterController
     void Start() {
         controller = GetComponent<CharacterController>();
+        SwitchState(Idle);
     }
 
     void Update() {
         GetDirectionAndMove();
         Gravity();
+
+        currentState.UpdateState(this);
+    }
+
+    public void SwitchState(MovementBaseState state) {
+        currentState = state;
+        currentState.EnterState(this);
     }
 
     //Moves the player from the axis inputs

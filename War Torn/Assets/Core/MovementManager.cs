@@ -31,7 +31,7 @@ public class MovementManager : MonoBehaviour {
         vInput = Input.GetAxis("Vertical");
 
         direction = transform.forward * vInput + transform.right * hzInput;
-        controller.Move(direction * moveSpeed * Time.deltaTime);
+        controller.Move(direction.normalized * moveSpeed * Time.deltaTime);
     }
 
     //Checks if the player is on the ground

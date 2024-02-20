@@ -18,6 +18,10 @@ public class CameraAimManager : MonoBehaviour {
     [HideInInspector] public float currentFov;
     public float fovSmoothSpeed = 10;
 
+    [SerializeField] Transform aimPosition;
+    [SerializeField] float aimSmoothSpeed = 20;
+    [SerializeField] LayerMask aimMask;
+
     void Start() {
         Cursor.lockState = CursorLockMode.Locked;
 
@@ -36,6 +40,12 @@ public class CameraAimManager : MonoBehaviour {
         virtualCamera.m_Lens.FieldOfView = Mathf.Lerp(virtualCamera.m_Lens.FieldOfView, currentFov, fovSmoothSpeed * Time.deltaTime);
 
         currentState.UpdateState(this);
+
+        Vector2 screenCenter = new Vector2(Screen.width / 2, Screen.height / 2);
+        Ray ray = Camera.main.ScreenPointToRay(screenCenter);
+
+        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, aimMask))
+            aimPosition.position = Vector3.Lerp(aimPosition.position, hit.point, aimSmoothSpeed * Time.deltaTime);
     }
 
     void LateUpdate() {

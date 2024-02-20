@@ -8,7 +8,7 @@ public class AimState : AimBaseState {
     }
 
     public override void UpdateState(CameraAimManager aimStateManager) {
-        if (Input.GetKeyUp(KeyCode.Mouse1)) {
+        if (Input.GetKeyUp((KeyCode)GameManager.Controls.aim)) {
             aimStateManager.SwitchState(aimStateManager.Hip);
         }
     }

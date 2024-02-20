@@ -8,7 +8,7 @@ public class RunState : MovementBaseState {
     }
 
     public override void UpdateState(MovementManager movementManager) {
-        if(Input.GetKeyUp(KeyCode.LeftShift)) {
+        if(Input.GetKeyUp((KeyCode)GameManager.Controls.run)) {
             ExitState(movementManager, movementManager.Walk);
         } else if(movementManager.direction.magnitude < 0.1f) {
             ExitState(movementManager, movementManager.Idle);

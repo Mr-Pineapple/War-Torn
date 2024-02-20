@@ -9,7 +9,7 @@ public class HipFireState : AimBaseState
     }
 
     public override void UpdateState(CameraAimManager aimStateManager) {
-        if(Input.GetKey(KeyCode.Mouse1)) {
+        if(Input.GetKey((KeyCode)GameManager.Controls.aim)) {
             aimStateManager.SwitchState(aimStateManager.Aim);
         }
     }

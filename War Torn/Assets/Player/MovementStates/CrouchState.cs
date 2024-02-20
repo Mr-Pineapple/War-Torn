@@ -9,9 +9,9 @@ public class CrouchState : MovementBaseState {
     }
 
     public override void UpdateState(MovementManager movementManager) {
-        if(Input.GetKey(KeyCode.LeftShift)) {
+        if(Input.GetKey((KeyCode)GameManager.Controls.run)) {
             ExitState(movementManager, movementManager.Run);
-        } if(Input.GetKeyDown(KeyCode.C)) {
+        } if(Input.GetKeyDown((KeyCode)GameManager.Controls.crouch)) {
             if(movementManager.direction.magnitude < 0.1f) {
                 ExitState(movementManager, movementManager.Idle);
             } else {

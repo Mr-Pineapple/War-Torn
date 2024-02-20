@@ -8,9 +8,9 @@ public class WalkState : MovementBaseState {
     }
 
     public override void UpdateState(MovementManager movementManager) {
-        if (Input.GetKey(KeyCode.LeftShift)) {
+        if (Input.GetKey((KeyCode)GameManager.Controls.run)) {
             ExitState(movementManager, movementManager.Run);
-        } else if(Input.GetKeyDown(KeyCode.C)) {
+        } else if(Input.GetKeyDown((KeyCode)GameManager.Controls.crouch)) {
             ExitState(movementManager, movementManager.Crouch);
         } else if(movementManager.direction.magnitude < 0.1f) {
             ExitState(movementManager, movementManager.Idle);

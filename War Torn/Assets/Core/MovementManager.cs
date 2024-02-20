@@ -35,7 +35,7 @@ public class MovementManager : MonoBehaviour {
 
     //Currently only used to get and set the CharacterController
     void Start() {
-        animator = GetComponentInChildren<Animator>();
+        animator = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
         SwitchState(Idle);
     }

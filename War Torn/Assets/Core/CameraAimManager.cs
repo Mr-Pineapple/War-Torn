@@ -24,7 +24,7 @@ public class CameraAimManager : MonoBehaviour {
         virtualCamera = GetComponentInChildren<CinemachineVirtualCamera>();
         hipFov = virtualCamera.m_Lens.FieldOfView;
 
-        animator = GetComponentInChildren<Animator>();
+        animator = GetComponent<Animator>();
         SwitchState(Hip);    
     }
 

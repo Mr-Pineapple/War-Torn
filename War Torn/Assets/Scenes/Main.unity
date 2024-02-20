@@ -269,7 +269,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 5037300}
   m_Follow: {fileID: 5037300}
   m_Lens:
-    FieldOfView: 60.000004
+    FieldOfView: 60
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
@@ -296,12 +296,12 @@ Transform:
   m_GameObject: {fileID: 162103264}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.088, y: 4.225, z: -2.53}
+  m_LocalPosition: {x: 1.088, y: 2.485, z: -2.53}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 863887526}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 2081085002}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
@@ -618,7 +618,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60.000004
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -802,6 +802,7 @@ Transform:
   m_Children:
   - {fileID: 5037300}
   - {fileID: 1418285403}
+  - {fileID: 162103266}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2081085003
@@ -819,6 +820,11 @@ MonoBehaviour:
   mouseSensitivity: 1
   cameraFollowPosition: {fileID: 5037300}
   animator: {fileID: 0}
+  virtualCamera: {fileID: 0}
+  adsFov: 40
+  hipFov: 0
+  currentFov: 0
+  fovSmoothSpeed: 10
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -827,4 +833,3 @@ SceneRoots:
   - {fileID: 705507995}
   - {fileID: 736241892}
   - {fileID: 2081085002}
-  - {fileID: 162103266}

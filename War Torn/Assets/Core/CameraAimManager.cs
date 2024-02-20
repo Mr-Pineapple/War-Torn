@@ -1,4 +1,5 @@
 using UnityEngine;
+using Cinemachine;
 
 public class CameraAimManager : MonoBehaviour {
     AimBaseState currentState;
@@ -11,7 +12,18 @@ public class CameraAimManager : MonoBehaviour {
 
     [HideInInspector] public Animator animator;
 
+    [HideInInspector] public CinemachineVirtualCamera virtualCamera;
+    public float adsFov = 40;
+    [HideInInspector] public float hipFov;
+    [HideInInspector] public float currentFov;
+    public float fovSmoothSpeed = 10;
+
     void Start() {
+        Cursor.lockState = CursorLockMode.Locked;
+
+        virtualCamera = GetComponentInChildren<CinemachineVirtualCamera>();
+        hipFov = virtualCamera.m_Lens.FieldOfView;
+
         animator = GetComponentInChildren<Animator>();
         SwitchState(Hip);    
     }
@@ -20,6 +32,8 @@ public class CameraAimManager : MonoBehaviour {
         xAxis += Input.GetAxisRaw("Mouse X") * mouseSensitivity;
         yAxis -= Input.GetAxisRaw("Mouse Y") * mouseSensitivity;
         yAxis = Mathf.Clamp(yAxis, -80, 80);
+
+        virtualCamera.m_Lens.FieldOfView = Mathf.Lerp(virtualCamera.m_Lens.FieldOfView, currentFov, fovSmoothSpeed * Time.deltaTime);
 
         currentState.UpdateState(this);
     }

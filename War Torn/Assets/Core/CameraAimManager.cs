@@ -35,7 +35,7 @@ public class CameraAimManager : MonoBehaviour {
     void Update() {
         xAxis += Input.GetAxisRaw("Mouse X") * mouseSensitivity;
         yAxis -= Input.GetAxisRaw("Mouse Y") * mouseSensitivity;
-        yAxis = Mathf.Clamp(yAxis, -20, 20);
+        yAxis = Mathf.Clamp(yAxis, -50, 80);
 
         virtualCamera.m_Lens.FieldOfView = Mathf.Lerp(virtualCamera.m_Lens.FieldOfView, currentFov, fovSmoothSpeed * Time.deltaTime);
 

@@ -4,7 +4,7 @@ public class MovementManager : MonoBehaviour {
     #region Movement
     public float currentMoveSpeed;
     public float walkSpeed = 3, walkBackSpeed = 2;
-    public float runSpeed = 7, runBackSpeed = 5;
+    public float runSpeed = 15, runBackSpeed = 5;
     public float crouchSpeed = 2, crouchBackSpeed = 1;
 
     [HideInInspector] public Vector3 direction;

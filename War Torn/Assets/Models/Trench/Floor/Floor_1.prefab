@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7044945384469147977}
   - component: {fileID: 7907683997067381016}
   - component: {fileID: 2115036043026440456}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Box056 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1271022415724616901}
-  m_Layer: 0
+  - component: {fileID: 7094732000925030406}
+  m_Layer: 3
   m_Name: Floor_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,6 +127,27 @@ Transform:
   - {fileID: 7525433836538693260}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7094732000925030406
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4441468663699747137}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.75, y: 0.4, z: 3.75}
+  m_Center: {x: -1.4, y: -1.55, z: 1.4}
 --- !u!1 &4568147976122989148
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,7 +159,7 @@ GameObject:
   - component: {fileID: 6583633797063777036}
   - component: {fileID: 1755742568659048413}
   - component: {fileID: 7799272866627130793}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Box056 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +242,7 @@ GameObject:
   - component: {fileID: 1792029239624136249}
   - component: {fileID: 4289496972328836902}
   - component: {fileID: 7564940158822021862}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Box056 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -303,7 +325,7 @@ GameObject:
   - component: {fileID: 1663069865582734381}
   - component: {fileID: 32441916465190081}
   - component: {fileID: 9139053913100905647}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Box056 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -427,6 +449,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: plank_1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d132950901f31a54ba410b966059ed9b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -488,6 +514,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: be4eea1140d60c247b8f8243b6198e1e, type: 3}
       propertyPath: m_Name
       value: plank_3 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: be4eea1140d60c247b8f8243b6198e1e, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -551,6 +581,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: plank_3 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: be4eea1140d60c247b8f8243b6198e1e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -612,6 +646,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: be4eea1140d60c247b8f8243b6198e1e, type: 3}
       propertyPath: m_Name
       value: plank_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: be4eea1140d60c247b8f8243b6198e1e, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -675,6 +713,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: plank_3 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: be4eea1140d60c247b8f8243b6198e1e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -736,6 +778,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d132950901f31a54ba410b966059ed9b, type: 3}
       propertyPath: m_Name
       value: plank_1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d132950901f31a54ba410b966059ed9b, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -799,6 +845,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: plank_3 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: be4eea1140d60c247b8f8243b6198e1e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -860,6 +910,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: be4eea1140d60c247b8f8243b6198e1e, type: 3}
       propertyPath: m_Name
       value: plank_3 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: be4eea1140d60c247b8f8243b6198e1e, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

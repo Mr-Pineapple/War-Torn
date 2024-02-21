@@ -25,7 +25,8 @@ public class GameManager : MonoBehaviour
         crouch = KeyCode.LeftControl,
         run = KeyCode.LeftShift,
         aim = KeyCode.Mouse1,
-        shoot = KeyCode.Mouse0
+        shoot = KeyCode.Mouse0,
+        reload = KeyCode.R
     }
 
 }

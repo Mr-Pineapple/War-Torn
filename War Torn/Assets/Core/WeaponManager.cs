@@ -20,13 +20,14 @@ public class WeaponManager : MonoBehaviour {
 
     [SerializeField] AudioClip gunshot;
     AudioSource audioSource;
-
     WeaponAmmo ammo;
+    ActionStateManager actions;
 
     void Start() {
         audioSource = GetComponent<AudioSource>();
         aim = GetComponentInParent<CameraAimManager>();
         ammo = GetComponent<WeaponAmmo>();
+        actions = GetComponentInParent<ActionStateManager>();
         fireRateTime = fireRate;
     }
 
@@ -38,6 +39,7 @@ public class WeaponManager : MonoBehaviour {
         fireRateTime += Time.deltaTime;
         if (fireRateTime < fireRate) return false;
         if (ammo.currentAmmo == 0) return false;
+        if (actions.currentState == actions.Reload) return false;
         if (semi && Input.GetKeyDown((KeyCode)GameManager.Controls.shoot)) return true;
         if (!semi && Input.GetKey((KeyCode)GameManager.Controls.shoot)) return true;
         return false;

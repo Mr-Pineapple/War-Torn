@@ -151,7 +151,8 @@ Transform:
   m_LocalPosition: {x: 1.088, y: 2.085, z: -0.53}
   m_LocalScale: {x: 1, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 555016077}
   m_Father: {fileID: 2081085002}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &45999221
@@ -256,8 +257,8 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 5037300}
-  m_Follow: {fileID: 5037300}
+  m_LookAt: {fileID: 555016077}
+  m_Follow: {fileID: 555016077}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 5
@@ -915,6 +916,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1271022415724616901, guid: f4f95ee5acb895e449473d8af9b8c25d, type: 3}
   m_PrefabInstance: {fileID: 612278592}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &555016076
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 555016077}
+  m_Layer: 6
+  m_Name: RecoilFollowPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &555016077
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555016076}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5037300}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &612278592
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2524,6 +2556,8 @@ MonoBehaviour:
   aimMask:
     serializedVersion: 2
     m_Bits: 9
+  crouchCameraHeight: 0.6
+  shoulderSwapSpeed: 10
 --- !u!95 &2081085004
 Animator:
   serializedVersion: 5
@@ -3418,6 +3452,7 @@ GameObject:
   - component: {fileID: 2172590408652307457}
   - component: {fileID: 2172590408652307458}
   - component: {fileID: 2172590408652307459}
+  - component: {fileID: 2172590408652307460}
   m_Layer: 6
   m_Name: gun1
   m_TagString: Untagged
@@ -3558,6 +3593,22 @@ MonoBehaviour:
   magInSound: {fileID: 8300000, guid: 20e9d42121439044688e6a8b24c1570a, type: 3}
   magOutSound: {fileID: 8300000, guid: 7f1099d78b439264b8e3f0d990ccd5ef, type: 3}
   releaseSlideSound: {fileID: 8300000, guid: b5f1b98c23235f34cabcf1b45cff81ff, type: 3}
+--- !u!114 &2172590408652307460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2172590408652307456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25d715aca993f7b458f9f05def92e553, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recoilFollowPosition: {fileID: 555016077}
+  kickBackAmount: -1
+  kickBackSpeed: 10
+  returnSpeed: 20
 --- !u!4 &2325615478106526440
 Transform:
   m_ObjectHideFlags: 0

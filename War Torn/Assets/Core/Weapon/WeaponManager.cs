@@ -23,7 +23,11 @@ public class WeaponManager : MonoBehaviour {
     WeaponAmmo ammo;
     ActionStateManager actions;
 
+    WeaponRecoil recoil;
+
+
     void Start() {
+        recoil = GetComponent<WeaponRecoil>();
         audioSource = GetComponent<AudioSource>();
         aim = GetComponentInParent<CameraAimManager>();
         ammo = GetComponent<WeaponAmmo>();
@@ -49,6 +53,7 @@ public class WeaponManager : MonoBehaviour {
         fireRateTime = 0;
         barrelPosition.LookAt(aim.aimPosition);
         audioSource.PlayOneShot(gunshot);
+        recoil.TriggerRecoil();
         ammo.currentAmmo--;
         for (int i = 0; i < bulletsPerShot; i++) {
             GameObject currentBullet = Instantiate(bullet, barrelPosition.position, barrelPosition.rotation);

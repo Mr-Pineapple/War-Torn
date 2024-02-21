@@ -22,8 +22,18 @@ public class CameraAimManager : MonoBehaviour {
     [SerializeField] float aimSmoothSpeed = 20;
     [SerializeField] LayerMask aimMask;
 
+    float xFollowPosition;
+    float yFollowPosition, ogYPosition;
+    [SerializeField] float crouchCameraHeight = 0.6f;
+    [SerializeField] float shoulderSwapSpeed = 10;
+    MovementManager moving;
+
     void Start() {
         Cursor.lockState = CursorLockMode.Locked;
+        moving = GetComponent<MovementManager>();
+        xFollowPosition = cameraFollowPosition.localPosition.x;
+        ogYPosition = cameraFollowPosition.localPosition.y;
+        yFollowPosition = ogYPosition;
 
         virtualCamera = GetComponentInChildren<CinemachineVirtualCamera>();
         hipFov = virtualCamera.m_Lens.FieldOfView;
@@ -47,6 +57,8 @@ public class CameraAimManager : MonoBehaviour {
         if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, aimMask)) {
             aimPosition.position = Vector3.Lerp(aimPosition.position, hit.point, aimSmoothSpeed * Time.deltaTime);
         }
+
+        MoveCamera();
     }
 
     void LateUpdate() {
@@ -57,6 +69,15 @@ public class CameraAimManager : MonoBehaviour {
     public void SwitchState(AimBaseState state) {
         currentState = state;
         currentState.EnterState(this);
+    }
+
+    void MoveCamera() {
+        if (Input.GetKeyDown((KeyCode)GameManager.Controls.camera)) xFollowPosition = -xFollowPosition;
+        if (moving.currentState == moving.Crouch) yFollowPosition = crouchCameraHeight;
+        else yFollowPosition = ogYPosition;
+
+        Vector3 newFollowPosition = new Vector3(xFollowPosition, yFollowPosition, cameraFollowPosition.localPosition.z);
+        cameraFollowPosition.localPosition = Vector3.Lerp(cameraFollowPosition.localPosition, newFollowPosition, shoulderSwapSpeed * Time.deltaTime);
     }
 
 }

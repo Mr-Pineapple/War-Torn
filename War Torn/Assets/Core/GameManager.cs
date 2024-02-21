@@ -26,7 +26,8 @@ public class GameManager : MonoBehaviour
         run = KeyCode.LeftShift,
         aim = KeyCode.Mouse1,
         shoot = KeyCode.Mouse0,
-        reload = KeyCode.R
+        reload = KeyCode.R,
+        camera = KeyCode.LeftAlt
     }
 
 }

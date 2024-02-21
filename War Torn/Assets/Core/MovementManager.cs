@@ -24,7 +24,7 @@ public class MovementManager : MonoBehaviour {
     #endregion
 
     #region Movement States
-    MovementBaseState currentState;
+    public MovementBaseState currentState;
     public IdleState Idle = new IdleState();
     public WalkState Walk = new WalkState();
     public RunState Run = new RunState();
@@ -86,10 +86,10 @@ public class MovementManager : MonoBehaviour {
     }
 
     //Debugging Gizmos
-    void OnDrawGizmos() {
-        if (!Application.isPlaying) return;
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(spherePosition, controller.radius - 0.05f);
-    }
+    //void OnDrawGizmos() {
+    //    if (!Application.isPlaying) return;
+    //    Gizmos.color = Color.red;
+    //    Gizmos.DrawWireSphere(spherePosition, controller.radius - 0.05f);
+    //}
 
 }

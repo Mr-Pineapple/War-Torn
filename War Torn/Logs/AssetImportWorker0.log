@@ -15,7 +15,7 @@ C:/Users/Mr. Pineapple/Documents/Programming/Unity/War-Torn/War Torn
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-57216
+49490
 Successfully changed project path to: C:/Users/Mr. Pineapple/Documents/Programming/Unity/War-Torn/War Torn
 C:/Users/Mr. Pineapple/Documents/Programming/Unity/War-Torn/War Torn
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -49,12 +49,12 @@ C:/Users/Mr. Pineapple/Documents/Programming/Unity/War-Torn/War Torn
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [37296] Host "[IP] 10.103.142.98 [Port] 0 [Flags] 2 [Guid] 1611644539 [EditorId] 1611644539 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-JRA1RJP) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [9744] Host "[IP] 10.103.142.98 [Port] 0 [Flags] 2 [Guid] 139170282 [EditorId] 139170282 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-JRA1RJP) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [37296] Host "[IP] 10.103.142.98 [Port] 0 [Flags] 2 [Guid] 1611644539 [EditorId] 1611644539 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-JRA1RJP) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [9744] Host "[IP] 10.103.142.98 [Port] 0 [Flags] 2 [Guid] 139170282 [EditorId] 139170282 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-JRA1RJP) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 [Physics::Module] Initialized MultithreadedJobDispatcher with 7 workers.
-Refreshing native plugins compatible for Editor in 14.23 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 17.56 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.9f1 (ea401c316338)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.9f1/Editor/Data/Resources/UnitySubsystems
@@ -70,46 +70,46 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.9f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.9f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.9f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56600
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56088
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.9f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.9f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.015909 seconds.
-- Loaded All Assemblies, in  0.436 seconds
+Registered in 0.013593 seconds.
+- Loaded All Assemblies, in  0.410 seconds
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.323 seconds
-Domain Reload Profiling: 757ms
-	BeginReloadAssembly (140ms)
+- Finished resetting the current domain, in  0.297 seconds
+Domain Reload Profiling: 705ms
+	BeginReloadAssembly (124ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (42ms)
-	RebuildNativeTypeToScriptingClass (13ms)
-	initialDomainReloadingComplete (77ms)
+	RebuildCommonClasses (39ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (71ms)
 	LoadAllAssembliesAndSetupDomain (161ms)
-		LoadAssemblies (137ms)
+		LoadAssemblies (122ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (158ms)
+		AnalyzeDomain (159ms)
 			TypeCache.Refresh (157ms)
-				TypeCache.ScanAssembly (139ms)
+				TypeCache.ScanAssembly (142ms)
 			ScanForSourceGeneratedMonoScriptInfo (0ms)
-			ResolveRequiredComponents (1ms)
-	FinalizeReload (324ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (297ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (216ms)
+		SetupLoadedEditorAssemblies (228ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (15ms)
-			SetLoadedEditorAssemblies (6ms)
+			InitializePlatformSupportModulesInManaged (14ms)
+			SetLoadedEditorAssemblies (5ms)
 			RefreshPlugins (0ms)
 			BeforeProcessingInitializeOnLoad (2ms)
-			ProcessInitializeOnLoadAttributes (139ms)
-			ProcessInitializeOnLoadMethodAttributes (54ms)
+			ProcessInitializeOnLoadAttributes (147ms)
+			ProcessInitializeOnLoadMethodAttributes (59ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -117,8 +117,8 @@ Domain Reload Profiling: 757ms
 ========================================================================
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.811 seconds
-Refreshing native plugins compatible for Editor in 5.48 ms, found 3 plugins.
+- Loaded All Assemblies, in  0.800 seconds
+Refreshing native plugins compatible for Editor in 4.87 ms, found 3 plugins.
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
 [MODES] ModeService[none].Initialize
@@ -129,48 +129,77 @@ Package Manager log level set to [2]
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.719 seconds
-Domain Reload Profiling: 1524ms
-	BeginReloadAssembly (172ms)
+- Finished resetting the current domain, in  0.746 seconds
+Domain Reload Profiling: 1542ms
+	BeginReloadAssembly (165ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (7ms)
+		DisableScriptedObjects (6ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (24ms)
-	RebuildCommonClasses (37ms)
-	RebuildNativeTypeToScriptingClass (13ms)
-	initialDomainReloadingComplete (52ms)
-	LoadAllAssembliesAndSetupDomain (531ms)
-		LoadAssemblies (402ms)
+		CreateAndSetChildDomain (23ms)
+	RebuildCommonClasses (38ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (50ms)
+	LoadAllAssembliesAndSetupDomain (530ms)
+		LoadAssemblies (398ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (230ms)
-			TypeCache.Refresh (201ms)
-				TypeCache.ScanAssembly (183ms)
-			ScanForSourceGeneratedMonoScriptInfo (21ms)
+		AnalyzeDomain (228ms)
+			TypeCache.Refresh (200ms)
+				TypeCache.ScanAssembly (181ms)
+			ScanForSourceGeneratedMonoScriptInfo (20ms)
 			ResolveRequiredComponents (6ms)
-	FinalizeReload (719ms)
+	FinalizeReload (747ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (548ms)
+		SetupLoadedEditorAssemblies (567ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (9ms)
+			InitializePlatformSupportModulesInManaged (10ms)
 			SetLoadedEditorAssemblies (4ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (82ms)
-			ProcessInitializeOnLoadAttributes (421ms)
-			ProcessInitializeOnLoadMethodAttributes (21ms)
-			AfterProcessingInitializeOnLoad (12ms)
+			BeforeProcessingInitializeOnLoad (90ms)
+			ProcessInitializeOnLoadAttributes (431ms)
+			ProcessInitializeOnLoadMethodAttributes (22ms)
+			AfterProcessingInitializeOnLoad (11ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (7ms)
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.08 seconds
-Refreshing native plugins compatible for Editor in 6.10 ms, found 3 plugins.
+		AwakeInstancesAfterBackupRestoration (8ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 5.96 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4085 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 62 unused Assets / (195.9 KB). Loaded Objects now: 4561.
+Unloading 4088 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 62 unused Assets / (187.8 KB). Loaded Objects now: 4565.
 Memory consumption went from 227.8 MB to 227.6 MB.
-Total: 4.029100 ms (FindLiveObjects: 0.302500 ms CreateObjectMapping: 0.286800 ms MarkObjects: 3.178100 ms  DeleteObjects: 0.260500 ms)
+Total: 3.878100 ms (FindLiveObjects: 0.369500 ms CreateObjectMapping: 0.442500 ms MarkObjects: 2.896100 ms  DeleteObjects: 0.169300 ms)
 
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 1284347.117033 seconds.
+  path: Assets/Scenes & Content/Main.unity
+  artifactKey: Guid(96fdba1ade5d17b418f29d6ac22a394f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes & Content/Main.unity using Guid(96fdba1ade5d17b418f29d6ac22a394f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd56ec27a831d20ce30338a88df144e4b') in 0.002302 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 5.80 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 3 unused Assets / (116.1 KB). Loaded Objects now: 4565.
+Memory consumption went from 157.8 MB to 157.7 MB.
+Total: 3.982100 ms (FindLiveObjects: 0.295300 ms CreateObjectMapping: 0.637800 ms MarkObjects: 2.968200 ms  DeleteObjects: 0.079800 ms)
+
+Prepare: number of updated asset objects reloaded= 0
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -186,41 +215,17 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 1279335.397039 seconds.
-  path: Assets/Models/Trench/Walls/Prefabs/Trench-Corner.fbx
-  artifactKey: Guid(5d7c2707d651d31469343a29b415eef7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Trench/Walls/Prefabs/Trench-Corner.fbx using Guid(5d7c2707d651d31469343a29b415eef7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff697d44d75395e311df32f3bacbd7fe') in 0.153182 seconds
+  Time since last request: 37.856078 seconds.
+  path: Assets/Materials
+  artifactKey: Guid(93a6de209690de640960539c55d89180) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials using Guid(93a6de209690de640960539c55d89180) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '732329875f9bff2607dea83283dab383') in 0.002036 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 8
+Number of asset objects unloaded after import = 0
 ========================================================================
 Received Import Request.
-  Time since last request: 22.122249 seconds.
-  path: Assets/Models/Trench/Walls/Prefabs/Trench-Corner.fbx
-  artifactKey: Guid(5d7c2707d651d31469343a29b415eef7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Trench/Walls/Prefabs/Trench-Corner.fbx using Guid(5d7c2707d651d31469343a29b415eef7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0710fa0ba1829d0fb62d6ecf2bd34219') in 0.025690 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 8
-========================================================================
-Received Import Request.
-  Time since last request: 68.550281 seconds.
-  path: Assets/Models/Trench/Walls/Prefabs/Trench-Side.fbx
-  artifactKey: Guid(0361d357cccf2b344aa26ba7c0321d27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Trench/Walls/Prefabs/Trench-Side.fbx using Guid(0361d357cccf2b344aa26ba7c0321d27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f567d8e555fab52938964e0e81f9051') in 0.031850 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 8
-========================================================================
-Received Import Request.
-  Time since last request: 13.421489 seconds.
-  path: Assets/Models/Trench/Walls/Prefabs/Trench-Corner.fbx
-  artifactKey: Guid(5d7c2707d651d31469343a29b415eef7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Trench/Walls/Prefabs/Trench-Corner.fbx using Guid(5d7c2707d651d31469343a29b415eef7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f49a164355c0b887046e668f0e7d0ee2') in 0.025232 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 3.804371 seconds.
-  path: Assets/Models/Trench/Walls/Prefabs/Trench-Side.fbx
-  artifactKey: Guid(0361d357cccf2b344aa26ba7c0321d27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Trench/Walls/Prefabs/Trench-Side.fbx using Guid(0361d357cccf2b344aa26ba7c0321d27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a00dfe6545a219cf5a49c80759ac70a') in 0.025185 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
+  Time since last request: 3408.974359 seconds.
+  path: Assets/M Studio/Colourful Hierarchy Category GameObject/Color Palette.asset
+  artifactKey: Guid(24dd57bd1a499470d9667bdb59529a9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/M Studio/Colourful Hierarchy Category GameObject/Color Palette.asset using Guid(24dd57bd1a499470d9667bdb59529a9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '11c66da7403a3edcb2d819e785e84c8f') in 0.016045 seconds
+Number of updated asset objects reloaded before import = 1
+Number of asset objects unloaded after import = 0

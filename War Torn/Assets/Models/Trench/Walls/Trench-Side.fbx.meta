@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Mat_Dirt
-    second: {fileID: 2100000, guid: 61a8337e07ca5734abab6f95937ba8e3, type: 2}
+    second: {fileID: 2100000, guid: 46cc5d17ee414d9408547977e6a3cf65, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

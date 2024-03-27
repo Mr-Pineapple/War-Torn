@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6077782123304878159}
   - component: {fileID: 8946683360716480556}
   m_Layer: 0
-  m_Name: EndSection
+  m_Name: StartSection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -709,7 +709,7 @@ GameObject:
   - component: {fileID: 3776645880590853879}
   - component: {fileID: 641615058496333588}
   m_Layer: 0
-  m_Name: Jigsaw - Exit
+  m_Name: Jigsaw - Entry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -813,7 +813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0bcc2842c783074eb0558c3fd1076de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jigsawType: 1
+  jigsawType: 0
 --- !u!1 &7319289394168035186
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,18 +8,18 @@ using UnityEngine.ProBuilder;
  */
 public class LevelPiece : MonoBehaviour {
 
-    public void ConnectAndAllignParts(Jigsaw targetJigsaw) {
+    public void ConnectAndAlignParts(Jigsaw targetJigsaw) {
         Jigsaw entrancePoint = GetEntrancePoint();
-        AllignTo(entrancePoint, targetJigsaw);
+        AlignTo(entrancePoint, targetJigsaw);
         ConnectTo(entrancePoint, targetJigsaw);
     }
 
     /**
-     * @brief               used to allign the rotation of the piece if there are multiple entrances (only used for rooms within trenches)
+     * @brief               used to align the rotation of the piece if there are multiple entrances (only used for rooms within trenches)
      * @param ownJigsaw     Current jigsaw piece
      * @param targetJigsaw  Target jigsaw piece to connect to
      */
-    private void AllignTo(Jigsaw ownJigsaw, Jigsaw targetJigsaw) {
+    private void AlignTo(Jigsaw ownJigsaw, Jigsaw targetJigsaw) {
         var rotationOffset = ownJigsaw.transform.rotation.eulerAngles.y - transform.rotation.eulerAngles.y;
 
         transform.rotation = targetJigsaw.transform.rotation;

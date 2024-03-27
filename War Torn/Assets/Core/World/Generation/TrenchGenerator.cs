@@ -19,6 +19,7 @@ public class TrenchGenerator : MonoBehaviour {
 
     private void Start() {
         currentLevelParts = new List<Transform>(levelParts);
+        InitializeGeneration();
     }
 
     private void Update() {
@@ -28,10 +29,12 @@ public class TrenchGenerator : MonoBehaviour {
 
         cooldownTimer -= Time.deltaTime;
         if (cooldownTimer < 0) {
-            cooldownTimer = generationCooldown;
-            GenerateNextLevelPiece();
-        } else if (generationOver == false) {
-            //FinishGeneration();
+            if (currentLevelParts.Count > 0) {
+                cooldownTimer = generationCooldown;
+                GenerateNextLevelPiece();
+            } else if (generationOver == false) {
+                FinishGeneration();
+            }
         }
     }
 
@@ -53,6 +56,11 @@ public class TrenchGenerator : MonoBehaviour {
         } else {
             newPiece = Instantiate(ChooseRandomPiece());
         }
+
+        LevelPiece levelPieceScript = newPiece.GetComponent<LevelPiece>();
+        levelPieceScript.ConnectAndAlignParts(nextJigsawPieceLocation);
+
+        nextJigsawPieceLocation = levelPieceScript.GetExitPoint();
     }
 
     private Transform ChooseRandomPiece() {

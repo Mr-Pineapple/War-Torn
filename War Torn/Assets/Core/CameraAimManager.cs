@@ -39,7 +39,9 @@ public class CameraAimManager : MonoBehaviour {
         hipFov = virtualCamera.m_Lens.FieldOfView;
 
         animator = GetComponent<Animator>();
-        SwitchState(Hip);    
+        SwitchState(Hip);
+
+        aimPosition = GameObject.Find("AimPosition").transform;
     }
 
     void Update() {

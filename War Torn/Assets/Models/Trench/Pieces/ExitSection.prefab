@@ -16,6 +16,18 @@ PrefabInstance:
       propertyPath: jigsawType
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3168087854405738006, guid: 97917bfa44579e4498d2f2e068f9de7b, type: 3}
+      propertyPath: intersectionLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 3168087854405738006, guid: 97917bfa44579e4498d2f2e068f9de7b, type: 3}
+      propertyPath: intersectionCheckColliders.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3168087854405738006, guid: 97917bfa44579e4498d2f2e068f9de7b, type: 3}
+      propertyPath: intersectionCheckColliders.Array.data[0]
+      value: 
+      objectReference: {fileID: 1031762175497806668}
     - target: {fileID: 6803876000710662580, guid: 97917bfa44579e4498d2f2e068f9de7b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.05595
@@ -73,3 +85,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97917bfa44579e4498d2f2e068f9de7b, type: 3}
+--- !u!65 &1031762175497806668 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 3106022057398250694, guid: 97917bfa44579e4498d2f2e068f9de7b, type: 3}
+  m_PrefabInstance: {fileID: 2687312665994006410}
+  m_PrefabAsset: {fileID: 0}

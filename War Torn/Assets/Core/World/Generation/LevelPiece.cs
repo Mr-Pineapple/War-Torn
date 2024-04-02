@@ -8,6 +8,27 @@ using UnityEngine.ProBuilder;
  */
 public class LevelPiece : MonoBehaviour {
 
+    [SerializeField] private LayerMask intersectionLayer;
+    [SerializeField] private Collider[] intersectionCheckColliders;
+    [SerializeField] private Transform intersectionCheckParent;
+
+    public bool IntersectionDetected() {
+        Physics.SyncTransforms();
+
+        foreach (var collider in intersectionCheckColliders) {
+            Collider[] hitColliders = Physics.OverlapBox(collider.bounds.center, collider.bounds.extents, Quaternion.identity, intersectionLayer);
+
+            foreach(var hit in hitColliders) {
+                IntersectionCheck intersectionCheck = hit.GetComponentInParent<IntersectionCheck>();
+                if(intersectionCheck != null && intersectionCheckParent != intersectionCheck.transform) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
     public void ConnectAndAlignParts(Jigsaw targetJigsaw) {
         Jigsaw entrancePoint = GetEntrancePoint();
         AlignTo(entrancePoint, targetJigsaw);

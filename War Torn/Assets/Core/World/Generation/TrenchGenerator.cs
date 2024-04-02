@@ -60,6 +60,10 @@ public class TrenchGenerator : MonoBehaviour {
         LevelPiece levelPieceScript = newPiece.GetComponent<LevelPiece>();
         levelPieceScript.ConnectAndAlignParts(nextJigsawPieceLocation);
 
+        if(levelPieceScript.IntersectionDetected()) {
+            Debug.Log("Intersection");
+        }
+
         nextJigsawPieceLocation = levelPieceScript.GetExitPoint();
     }
 

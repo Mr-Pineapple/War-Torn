@@ -10,14 +10,18 @@ using Random = UnityEngine.Random;
 public class TrenchGenerator : MonoBehaviour {
     [SerializeField] private List<Transform> levelParts;
     private List<Transform> currentLevelParts;
+    private List<Transform> generatedLevelParts;
     [SerializeField] private Jigsaw nextJigsawPieceLocation;
     [SerializeField] private Transform lastLevelPiece;
+    private Jigsaw defaultJigsaw;
 
     [SerializeField] private float generationCooldown;
     private float cooldownTimer;
     private bool generationOver;
 
     private void Start() {
+        defaultJigsaw = nextJigsawPieceLocation;
+        generatedLevelParts = new List<Transform>();
         currentLevelParts = new List<Transform>(levelParts);
         InitializeGeneration();
     }
@@ -38,9 +42,17 @@ public class TrenchGenerator : MonoBehaviour {
         }
     }
 
+    [ContextMenu("Restart Generation")]
     private void InitializeGeneration() {
+        nextJigsawPieceLocation = defaultJigsaw;
         generationOver = false;
         currentLevelParts = new List<Transform>(levelParts);
+
+        foreach (Transform t in generatedLevelParts) {
+            Destroy(t.gameObject);
+        }
+
+        generatedLevelParts.Clear();
     }
 
     private void FinishGeneration() {
@@ -56,6 +68,8 @@ public class TrenchGenerator : MonoBehaviour {
         } else {
             newPiece = Instantiate(ChooseRandomPiece());
         }
+
+        generatedLevelParts.Add(newPiece);
 
         LevelPiece levelPieceScript = newPiece.GetComponent<LevelPiece>();
         levelPieceScript.ConnectAndAlignParts(nextJigsawPieceLocation);

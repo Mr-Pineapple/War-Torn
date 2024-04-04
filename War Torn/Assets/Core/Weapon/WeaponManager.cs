@@ -54,7 +54,7 @@ public class WeaponManager : MonoBehaviour {
         if (fireRateTime < fireRate) return false;
         if (ammo.currentAmmo == 0) return false;
         if (actions.currentState == actions.Reload) return false;
-        if(actions.currentState == actions.Swap) return false;
+        if (actions.currentState == actions.Swap) return false;
         if (semi && Input.GetKeyDown((KeyCode)GameManager.Controls.shoot)) return true;
         if (!semi && Input.GetKey((KeyCode)GameManager.Controls.shoot)) return true;
         return false;

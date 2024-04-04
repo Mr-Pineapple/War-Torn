@@ -9,6 +9,8 @@ public class DefaultState : ActionBaseState
     }
 
     public override void UpdateState(ActionStateManager actions) {
+        if (actions.rHandAim.weight == 0) actions.rHandAim.weight = .5f;
+        if (actions.lHandIK.weight == 0) actions.lHandIK.weight = 1;
 
         if (Input.GetKeyDown((KeyCode)GameManager.Controls.reload)&& CanReload(actions)) {
             actions.SwitchState(actions.Reload);

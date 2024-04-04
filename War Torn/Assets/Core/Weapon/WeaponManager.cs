@@ -19,20 +19,30 @@ public class WeaponManager : MonoBehaviour {
     #endregion
 
     [SerializeField] AudioClip gunshot;
-    AudioSource audioSource;
-    WeaponAmmo ammo;
+    [HideInInspector] public AudioSource audioSource;
+    [HideInInspector] public WeaponAmmo ammo;
     ActionStateManager actions;
 
     WeaponRecoil recoil;
+    public Transform leftHandTarget, leftHandHint;
+    WeaponClassManager weaponClass;
 
 
     void Start() {
-        recoil = GetComponent<WeaponRecoil>();
-        audioSource = GetComponent<AudioSource>();
         aim = GetComponentInParent<CameraAimManager>();
-        ammo = GetComponent<WeaponAmmo>();
         actions = GetComponentInParent<ActionStateManager>();
         fireRateTime = fireRate;
+    }
+
+    private void OnEnable() {
+        if(weaponClass == null) {
+            weaponClass = GetComponentInParent<WeaponClassManager>();
+            ammo = GetComponent<WeaponAmmo>();
+            audioSource = GetComponent<AudioSource>();
+            recoil = GetComponent<WeaponRecoil>();
+            recoil.recoilFollowPosition = weaponClass.recoilFollowPosition;
+        }
+        weaponClass.SetCurrentWeapon(this);
     }
 
     void Update() {

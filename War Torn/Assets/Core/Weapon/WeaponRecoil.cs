@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class WeaponRecoil : MonoBehaviour {
-    [SerializeField] Transform recoilFollowPosition;
+    [HideInInspector] public Transform recoilFollowPosition;
     [SerializeField] float kickBackAmount = -1;
     [SerializeField] float kickBackSpeed = 10, returnSpeed = 20;
     float currentRecoilPosition, finalRecoilPosition;

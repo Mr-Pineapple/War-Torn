@@ -121,7 +121,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5059376886653299424}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.5584749, y: 0.6043637, z: 0.4415592, w: 0.35759723}
+  m_LocalRotation: {x: -0.55847543, y: 0.6043641, z: 0.44155878, w: 0.35759628}
   m_LocalPosition: {x: -0.08, y: -0.22, z: 0.7}
   m_LocalScale: {x: 400, y: 400, z: 400}
   m_ConstrainProportionsScale: 0
@@ -151,6 +151,10 @@ MonoBehaviour:
   bulletVelocity: 500
   bulletsPerShot: 1
   gunshot: {fileID: 8300000, guid: 35c10db08f24d474bae54912c6e0bb9d, type: 3}
+  audioSource: {fileID: 0}
+  ammo: {fileID: 0}
+  leftHandTarget: {fileID: 8105880160549759903}
+  leftHandHint: {fileID: 3402231988090149149}
 --- !u!82 &7091173631174958210
 AudioSource:
   m_ObjectHideFlags: 0

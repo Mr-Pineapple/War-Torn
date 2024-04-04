@@ -7,6 +7,7 @@ public class ActionStateManager : MonoBehaviour {
     [HideInInspector] public ActionBaseState currentState;
     public ReloadState Reload = new ReloadState();
     public DefaultState Default = new DefaultState();
+    public SwapState Swap = new SwapState();
 
     [HideInInspector] public WeaponManager currentWeapon;
     [HideInInspector] public WeaponAmmo ammo;

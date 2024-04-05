@@ -15,6 +15,7 @@ public class WeaponManager : MonoBehaviour {
     [SerializeField] Transform barrelPosition;
     [SerializeField] float bulletVelocity;
     [SerializeField] int bulletsPerShot;
+    [SerializeField] public Vector3 leftHandIKPosition;
     CameraAimManager aim;
     #endregion
 

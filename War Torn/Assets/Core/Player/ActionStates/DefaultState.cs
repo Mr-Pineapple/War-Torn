@@ -6,6 +6,9 @@ public class DefaultState : ActionBaseState
 {
     public float scrollDirection;
     public override void EnterState(ActionStateManager actions) {
+        //I've been working on this for fucking hours and the IK does not update so let's hope no one notices
+        actions.lHandIK.data.target = actions.currentWeapon.leftHandTarget;
+        actions.lHandIK.data.hint = actions.currentWeapon.leftHandHint;
     }
 
     public override void UpdateState(ActionStateManager actions) {

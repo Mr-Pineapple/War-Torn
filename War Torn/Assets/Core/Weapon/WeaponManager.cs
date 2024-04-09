@@ -15,24 +15,35 @@ public class WeaponManager : MonoBehaviour {
     [SerializeField] Transform barrelPosition;
     [SerializeField] float bulletVelocity;
     [SerializeField] int bulletsPerShot;
+    [SerializeField] public Vector3 leftHandIKPosition;
     CameraAimManager aim;
     #endregion
 
     [SerializeField] AudioClip gunshot;
-    AudioSource audioSource;
-    WeaponAmmo ammo;
+    [HideInInspector] public AudioSource audioSource;
+    [HideInInspector] public WeaponAmmo ammo;
     ActionStateManager actions;
 
     WeaponRecoil recoil;
+    public Transform leftHandTarget, leftHandHint;
+    WeaponClassManager weaponClass;
 
 
     void Start() {
-        recoil = GetComponent<WeaponRecoil>();
-        audioSource = GetComponent<AudioSource>();
         aim = GetComponentInParent<CameraAimManager>();
-        ammo = GetComponent<WeaponAmmo>();
         actions = GetComponentInParent<ActionStateManager>();
         fireRateTime = fireRate;
+    }
+
+    private void OnEnable() {
+        if(weaponClass == null) {
+            weaponClass = GetComponentInParent<WeaponClassManager>();
+            ammo = GetComponent<WeaponAmmo>();
+            audioSource = GetComponent<AudioSource>();
+            recoil = GetComponent<WeaponRecoil>();
+            recoil.recoilFollowPosition = weaponClass.recoilFollowPosition;
+        }
+        weaponClass.SetCurrentWeapon(this);
     }
 
     void Update() {
@@ -44,6 +55,7 @@ public class WeaponManager : MonoBehaviour {
         if (fireRateTime < fireRate) return false;
         if (ammo.currentAmmo == 0) return false;
         if (actions.currentState == actions.Reload) return false;
+        if (actions.currentState == actions.Swap) return false;
         if (semi && Input.GetKeyDown((KeyCode)GameManager.Controls.shoot)) return true;
         if (!semi && Input.GetKey((KeyCode)GameManager.Controls.shoot)) return true;
         return false;

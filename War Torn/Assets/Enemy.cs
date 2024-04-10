@@ -16,9 +16,13 @@ public class Enemy : MonoBehaviour {
         RaycastHit hit;
         //Checks if a raycast has hit an object with the layer specified in the inspector
         //Would write the layer manually but who in the world would want to bit shift the index
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask)) {
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit)) {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.red);
-            Debug.Log("Hit Player");
+            if (hit.collider.name == "Player") {
+                Debug.Log("Hit Player");
+            } else {
+                return;
+            }
         } else {
             //Drawing the raycast cause I can't fucking see where it's looking otherwise
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 10, Color.red);

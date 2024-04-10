@@ -1,15 +1,71 @@
+using System;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour {
     public bool isInDetectionRadius { get; set; }
     [SerializeField] Transform player;
     [SerializeField] float degreesPerSecond;
 
+    private float startingHealth;
+    private float currentHealth;
+
+    private float chasingRange;
+    private float shootingRange;
+
+    private Material material;
+
+    [SerializeField] private Cover[] availableCovers;
+    private Transform bestCoverSpot;
+
+    private Node topNode;
+
+
+    //TODO: more health stuff, clamping the current health from 0 to the startingHealth as well as damage logic
+
+    private void Awake() {
+        agent = GetComponent<NavMeshAgent>();
+        material = GetComponent<MeshRenderer>().material;
+    }
+
+    private void Start() {
+        currentHealth = startingHealth;
+        ConstructBehaviourTree();
+    }
+
+    private void ConstructBehaviourTree() {
+        IsCoverAvailableNode coverAvailableNode = new IsCoverAvailableNode(availableCovers, player, this);
+    }
+
     void Update() {
         if (isInDetectionRadius) {
             LookAtPlayer();
         }
     }
+
+    public float GetCurrentHealth() {
+        return currentHealth;
+    }
+
+    public void SetColor(Color color) {
+        material.color = color;
+    }
+
+    public void SetBestCover(Transform bestSpot) {
+        this.bestCoverSpot = bestSpot;
+    }
+
+    public Transform GetBestCover() {
+        return bestCoverSpot;
+    }
+
+
+
+
+
+
+
+
 
     private void FixedUpdate() {
         RaycastHit hit;

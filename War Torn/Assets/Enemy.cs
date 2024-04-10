@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -9,6 +10,7 @@ public class Enemy : MonoBehaviour {
 
     private float startingHealth;
     private float currentHealth;
+    private float lowHealthThreshold;
 
     private float chasingRange;
     private float shootingRange;
@@ -17,6 +19,7 @@ public class Enemy : MonoBehaviour {
 
     [SerializeField] private Cover[] availableCovers;
     private Transform bestCoverSpot;
+    private NavMeshAgent agent;
 
     private Node topNode;
 
@@ -35,11 +38,33 @@ public class Enemy : MonoBehaviour {
 
     private void ConstructBehaviourTree() {
         IsCoverAvailableNode coverAvailableNode = new IsCoverAvailableNode(availableCovers, player, this);
+        GoToCoverNode goToCoverNode = new GoToCoverNode(agent, this);
+        HealthNode healthNode = new HealthNode(this, lowHealthThreshold);
+        IsCoveredNode isCoveredNode = new IsCoveredNode(player, transform);
+        ChaseNode chaseNode = new ChaseNode(player, agent, this);
+        RangeNode chasingRangeNode = new RangeNode(chasingRange, player, transform);
+        RangeNode shootingRangeNode = new RangeNode(shootingRange, player, transform);
+        ShootNode shootNode = new ShootNode(agent, this);
+
+        Sequence chaseSequence = new Sequence(new List<Node> { chasingRangeNode, chaseNode });
+        Sequence shootSequence = new Sequence(new List<Node> { shootingRangeNode, shootNode });
+
+        Sequence goToCoverSequence = new Sequence(new List<Node> { coverAvailableNode, goToCoverNode });
+        Selector findCoverSelector = new Selector(new List<Node> { goToCoverSequence, chaseSequence });
+        Selector tryToTakeCoverSelector = new Selector(new List<Node> { isCoveredNode, findCoverSelector });
+        Selector mainCoverSequence = new Selector(new List<Node> { healthNode, tryToTakeCoverSelector });
+
+        topNode = new Selector(new List<Node> { mainCoverSequence, shootSequence, chaseSequence });
     }
 
     void Update() {
-        if (isInDetectionRadius) {
-            LookAtPlayer();
+        //if (isInDetectionRadius) {
+        //    LookAtPlayer();
+        //}
+
+        topNode.Evaluate();
+        if(topNode.nodeState == NodeState.FAILURE) {
+            SetColor(Color.black);
         }
     }
 

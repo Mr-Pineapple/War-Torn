@@ -4,7 +4,6 @@ public class Enemy : MonoBehaviour {
     public bool isInDetectionRadius { get; set; }
     [SerializeField] Transform player;
     [SerializeField] float degreesPerSecond;
-    [SerializeField] LayerMask layerMask;
 
     void Update() {
         if (isInDetectionRadius) {
@@ -15,7 +14,6 @@ public class Enemy : MonoBehaviour {
     private void FixedUpdate() {
         RaycastHit hit;
         //Checks if a raycast has hit an object with the layer specified in the inspector
-        //Would write the layer manually but who in the world would want to bit shift the index
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit)) {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.red);
             if (hit.collider.name == "Player") {

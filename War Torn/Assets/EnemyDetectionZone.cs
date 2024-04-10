@@ -11,13 +11,13 @@ public class EnemyDetectionZone : MonoBehaviour {
 
     private void OnTriggerEnter(Collider collision) {
         if(collision.gameObject.name == "Player") {
-            enemy.canSeePlayer = true;
+            enemy.isInDetectionRadius = true;
         }
     }
 
     private void OnTriggerExit(Collider collision) {
         if(collision.gameObject.name == "Player") {
-            enemy.canSeePlayer = false;
+            enemy.isInDetectionRadius = false;
         }
     }
 }

@@ -1,14 +1,27 @@
 using UnityEngine;
 
 public class Enemy : MonoBehaviour {
-    [SerializeField] public bool canSeePlayer { get; set; }
+    public bool isInDetectionRadius { get; set; }
     [SerializeField] Transform player;
     [SerializeField] float degreesPerSecond;
-
+    [SerializeField] LayerMask layerMask;
 
     void Update() {
-        if (canSeePlayer) {
+        if (isInDetectionRadius) {
+            LookAtPlayer();
+        }
+    }
 
+    private void FixedUpdate() {
+        RaycastHit hit;
+        //Checks if a raycast has hit an object with the layer specified in the inspector
+        //Would write the layer manually but who in the world would want to bit shift the index
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask)) {
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.red);
+            Debug.Log("Hit Player");
+        } else {
+            //Drawing the raycast cause I can't fucking see where it's looking otherwise
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 10, Color.red);
         }
     }
 
@@ -26,5 +39,4 @@ public class Enemy : MonoBehaviour {
         //Lerp from the current rotation to the desired rotation 
         transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * (degreesPerSecond / 360));
     }
-
 }

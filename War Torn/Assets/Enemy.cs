@@ -58,10 +58,6 @@ public class Enemy : MonoBehaviour {
     }
 
     void Update() {
-        //if (isInDetectionRadius) {
-        //    LookAtPlayer();
-        //}
-
         topNode.Evaluate();
         if(topNode.nodeState == NodeState.FAILURE) {
             SetColor(Color.black);
@@ -85,14 +81,18 @@ public class Enemy : MonoBehaviour {
     }
 
 
-
-
-
-
-
-
-
+    /**
+     * Old version of enemy looking at player
+     * Moved to behaviour trees above, kept for code optimisation document
+     */
     private void FixedUpdate() {
+#pragma warning disable CS0618
+        RaycastToPlayer();
+#pragma warning restore CS0618
+    }
+
+    [Obsolete("RaycastToPlayer is deprecated, as usage of behavior trees are being implemented.")]
+    void RaycastToPlayer() {
         RaycastHit hit;
         //Checks if a raycast has hit an object with the layer specified in the inspector
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit)) {
@@ -108,6 +108,7 @@ public class Enemy : MonoBehaviour {
         }
     }
 
+    [Obsolete("LookAtPlayer is deprecated, as usage of behavior trees are being implemented.")]
     void LookAtPlayer() {
         //Difference between the player position and enemys position to give a direction
         Vector3 directionFromEnemyToTarget = player.position - transform.position;

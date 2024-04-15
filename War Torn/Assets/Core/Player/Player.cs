@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.AI.Navigation;
 using UnityEngine;
 
 public class Player : MonoBehaviour, IDamageable {
     
     [SerializeField] int maxHealth;
     [SerializeField] int currentHealth;
+    public NavMeshSurface navMeshSurface;
 
     private void Start() {
         currentHealth = maxHealth;
@@ -26,5 +28,10 @@ public class Player : MonoBehaviour, IDamageable {
 
     public int getMaxHealth() {
         return maxHealth;
+    }
+
+    [ContextMenu("Bake NavMesh")]
+    void bake() {
+        navMeshSurface.BuildNavMesh();
     }
 }

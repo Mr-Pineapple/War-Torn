@@ -12,12 +12,11 @@ public class Enemy : MonoBehaviour {
     private float currentHealth;
     private float lowHealthThreshold;
 
-    private float chasingRange;
-    private float shootingRange;
+    [SerializeField] private float chasingRange;
+    [SerializeField] private float shootingRange;
 
     private Material material;
 
-    [SerializeField] private Cover[] availableCovers;
     private Transform bestCoverSpot;
     private NavMeshAgent agent;
 
@@ -37,10 +36,6 @@ public class Enemy : MonoBehaviour {
     }
 
     private void ConstructBehaviourTree() {
-        IsCoverAvailableNode coverAvailableNode = new IsCoverAvailableNode(availableCovers, player, this);
-        GoToCoverNode goToCoverNode = new GoToCoverNode(agent, this);
-        HealthNode healthNode = new HealthNode(this, lowHealthThreshold);
-        IsCoveredNode isCoveredNode = new IsCoveredNode(player, transform);
         ChaseNode chaseNode = new ChaseNode(player, agent, this);
         RangeNode chasingRangeNode = new RangeNode(chasingRange, player, transform);
         RangeNode shootingRangeNode = new RangeNode(shootingRange, player, transform);
@@ -49,12 +44,7 @@ public class Enemy : MonoBehaviour {
         Sequence chaseSequence = new Sequence(new List<Node> { chasingRangeNode, chaseNode });
         Sequence shootSequence = new Sequence(new List<Node> { shootingRangeNode, shootNode });
 
-        Sequence goToCoverSequence = new Sequence(new List<Node> { coverAvailableNode, goToCoverNode });
-        Selector findCoverSelector = new Selector(new List<Node> { goToCoverSequence, chaseSequence });
-        Selector tryToTakeCoverSelector = new Selector(new List<Node> { isCoveredNode, findCoverSelector });
-        Selector mainCoverSequence = new Selector(new List<Node> { healthNode, tryToTakeCoverSelector });
-
-        topNode = new Selector(new List<Node> { mainCoverSequence, shootSequence, chaseSequence });
+        topNode = new Selector(new List<Node> { shootSequence, chaseSequence });
     }
 
     void Update() {
@@ -72,55 +62,47 @@ public class Enemy : MonoBehaviour {
         material.color = color;
     }
 
-    public void SetBestCover(Transform bestSpot) {
-        this.bestCoverSpot = bestSpot;
-    }
 
-    public Transform GetBestCover() {
-        return bestCoverSpot;
-    }
+//    /**
+//     * Old version of enemy looking at player
+//     * Moved to behaviour trees above, kept for code optimisation document
+//     */
+//    private void FixedUpdate() {
+//#pragma warning disable CS0618
+//        RaycastToPlayer();
+//#pragma warning restore CS0618
+//    }
 
+//    [Obsolete("RaycastToPlayer is deprecated, as usage of behavior trees are being implemented.")]
+//    void RaycastToPlayer() {
+//        RaycastHit hit;
+//        //Checks if a raycast has hit an object with the layer specified in the inspector
+//        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit)) {
+//            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.red);
+//            if (hit.collider.name == "Player") {
+//                Debug.Log("Hit Player");
+//            } else {
+//                return;
+//            }
+//        } else {
+//            //Drawing the raycast cause I can't fucking see where it's looking otherwise
+//            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 10, Color.red);
+//        }
+//    }
 
-    /**
-     * Old version of enemy looking at player
-     * Moved to behaviour trees above, kept for code optimisation document
-     */
-    private void FixedUpdate() {
-#pragma warning disable CS0618
-        RaycastToPlayer();
-#pragma warning restore CS0618
-    }
+//    [Obsolete("LookAtPlayer is deprecated, as usage of behavior trees are being implemented.")]
+//    void LookAtPlayer() {
+//        //Difference between the player position and enemys position to give a direction
+//        Vector3 directionFromEnemyToTarget = player.position - transform.position;
 
-    [Obsolete("RaycastToPlayer is deprecated, as usage of behavior trees are being implemented.")]
-    void RaycastToPlayer() {
-        RaycastHit hit;
-        //Checks if a raycast has hit an object with the layer specified in the inspector
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit)) {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.red);
-            if (hit.collider.name == "Player") {
-                Debug.Log("Hit Player");
-            } else {
-                return;
-            }
-        } else {
-            //Drawing the raycast cause I can't fucking see where it's looking otherwise
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 10, Color.red);
-        }
-    }
+//        //Block the y rotation because why would I want to do some more work with animations
+//        //Plus the player doesn't jump for the same reason
+//        directionFromEnemyToTarget.y = 0;
 
-    [Obsolete("LookAtPlayer is deprecated, as usage of behavior trees are being implemented.")]
-    void LookAtPlayer() {
-        //Difference between the player position and enemys position to give a direction
-        Vector3 directionFromEnemyToTarget = player.position - transform.position;
+//        //Calculates a rotation where the direction 'directionFromEnemyToTarget' would be forward
+//        Quaternion lookRotation = Quaternion.LookRotation(directionFromEnemyToTarget);
 
-        //Block the y rotation because why would I want to do some more work with animations
-        //Plus the player doesn't jump for the same reason
-        directionFromEnemyToTarget.y = 0;
-
-        //Calculates a rotation where the direction 'directionFromEnemyToTarget' would be forward
-        Quaternion lookRotation = Quaternion.LookRotation(directionFromEnemyToTarget);
-
-        //Lerp from the current rotation to the desired rotation 
-        transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * (degreesPerSecond / 360));
-    }
+//        //Lerp from the current rotation to the desired rotation 
+//        transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * (degreesPerSecond / 360));
+//    }
 }

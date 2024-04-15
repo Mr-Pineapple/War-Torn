@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour {
         Sequence chaseSequence = new Sequence(new List<Node> { chasingRangeNode, chaseNode });
         Sequence shootSequence = new Sequence(new List<Node> { shootingRangeNode, shootNode });
 
-        topNode = new Selector(new List<Node> { shootSequence, chaseSequence });
+        topNode = new Selector(new List<Node> { chaseSequence });
     }
 
     void Update() {

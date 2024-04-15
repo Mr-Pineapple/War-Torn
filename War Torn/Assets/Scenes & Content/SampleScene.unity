@@ -556,7 +556,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1285422996}
-  degreesPerSecond: 0
   chasingRange: 30
   shootingRange: 15
 --- !u!1 &1553865935

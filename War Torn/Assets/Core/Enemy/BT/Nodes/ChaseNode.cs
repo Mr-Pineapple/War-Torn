@@ -7,11 +7,13 @@ public class ChaseNode : Node {
     private Transform target;
     private NavMeshAgent agent;
     private Enemy ai;
+    private Animator animator;
 
-    public ChaseNode(Transform target, NavMeshAgent agent, Enemy ai) {
+    public ChaseNode(Transform target, NavMeshAgent agent, Enemy ai, Animator animator) {
         this.target = target;
         this.agent = agent;
         this.ai = ai;
+        this.animator = animator;
     }
 
     public override NodeState Evaluate() {
@@ -20,9 +22,11 @@ public class ChaseNode : Node {
         if(distance > 3f) {
             agent.isStopped = false;
             agent.SetDestination(target.position);
+            animator.SetBool("isWalking", true);
             return NodeState.RUNNING;
         } else {
             agent.isStopped = true;
+            animator.SetBool("isWalking", false);
             return NodeState.SUCCESS;
         }
     }

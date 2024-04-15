@@ -13,6 +13,8 @@ public class Enemy : MonoBehaviour {
     [SerializeField] private float chasingRange;
     [SerializeField] private float shootingRange;
 
+    [SerializeField] private Animator animator;
+
     private Material material;
 
     private NavMeshAgent agent;
@@ -24,6 +26,7 @@ public class Enemy : MonoBehaviour {
 
     private void Awake() {
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
         material = GetComponent<MeshRenderer>().material;
     }
 
@@ -33,7 +36,7 @@ public class Enemy : MonoBehaviour {
     }
 
     private void ConstructBehaviourTree() {
-        ChaseNode chaseNode = new ChaseNode(player, agent, this);
+        ChaseNode chaseNode = new ChaseNode(player, agent, this, animator);
         RangeNode chasingRangeNode = new RangeNode(chasingRange, player, transform);
         RangeNode shootingRangeNode = new RangeNode(shootingRange, player, transform);
         ShootNode shootNode = new ShootNode(agent, this);

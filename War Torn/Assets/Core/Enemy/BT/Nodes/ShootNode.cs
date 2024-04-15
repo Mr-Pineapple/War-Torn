@@ -14,7 +14,7 @@ public class ShootNode : Node {
 
     public override NodeState Evaluate() {
         agent.isStopped = true;
-        ai.SetColor(Color.green);
+        Debug.LogWarning("Shot Player");
         return NodeState.RUNNING;
     }
 }

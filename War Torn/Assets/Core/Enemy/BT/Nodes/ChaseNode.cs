@@ -19,7 +19,7 @@ public class ChaseNode : Node {
     public override NodeState Evaluate() {
         ai.SetColor(Color.red);
         float distance = Vector3.Distance(target.position, agent.transform.position);
-        if(distance > 3f) {
+        if(distance > 2f) {
             agent.isStopped = false;
             agent.SetDestination(target.position);
             animator.SetBool("isWalking", true);

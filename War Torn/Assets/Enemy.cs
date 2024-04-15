@@ -14,9 +14,9 @@ public class Enemy : MonoBehaviour {
     [SerializeField] private float shootingRange;
 
     [SerializeField] private Animator animator;
+    Rigidbody rb;
 
     private Material material;
-
     private NavMeshAgent agent;
 
     private Node topNode;
@@ -28,6 +28,7 @@ public class Enemy : MonoBehaviour {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         material = GetComponent<MeshRenderer>().material;
+        rb = GetComponent<Rigidbody>();
     }
 
     private void Start() {
@@ -44,13 +45,19 @@ public class Enemy : MonoBehaviour {
         Sequence chaseSequence = new Sequence(new List<Node> { chasingRangeNode, chaseNode });
         Sequence shootSequence = new Sequence(new List<Node> { shootingRangeNode, shootNode });
 
-        topNode = new Selector(new List<Node> { chaseSequence });
+        topNode = new Selector(new List<Node> { chaseSequence, shootSequence });
     }
 
     void Update() {
         topNode.Evaluate();
         if(topNode.nodeState == NodeState.FAILURE) {
             SetColor(Color.black);
+        }
+    }
+
+    private void FixedUpdate() {
+        if(rb.velocity.magnitude < 0.1) {
+            animator.SetBool("isWalking", false);
         }
     }
 

@@ -6,18 +6,15 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour {
     public bool isInDetectionRadius { get; set; }
     [SerializeField] Transform player;
-    [SerializeField] float degreesPerSecond;
 
     private float startingHealth;
     private float currentHealth;
-    private float lowHealthThreshold;
 
     [SerializeField] private float chasingRange;
     [SerializeField] private float shootingRange;
 
     private Material material;
 
-    private Transform bestCoverSpot;
     private NavMeshAgent agent;
 
     private Node topNode;

@@ -1,24 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.ConstrainedExecution;
+using UnityEditor;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
-{
+/**
+ * Used for global game controls
+ */
+public class GameManager : MonoBehaviour {
+    bool isGamePaused = false;
+
     void OnApplicationFocus(bool focus) {
         if (focus) Cursor.lockState = CursorLockMode.Locked;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void pauseGame(bool pause) {
+        if (pause) {
+            Time.timeScale = 0;
+            isGamePaused = true;
+        } else {
+            Time.timeScale = 1;
+            isGamePaused = false;
+        }
     }
 
     public enum Controls {

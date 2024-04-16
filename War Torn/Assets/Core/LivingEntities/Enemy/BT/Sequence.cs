@@ -15,12 +15,9 @@ public class Sequence : Node {
             switch(node.Evaluate()) {
                 case NodeState.RUNNING:
                     isAnyNodeRunning = true;
-                    break;
-                case NodeState.SUCCESS:
-                    break;
+                    return NodeState.RUNNING;
                 case NodeState.FAILURE:
-                    _nodeState = NodeState.FAILURE;
-                    return _nodeState;
+                    return NodeState.FAILURE;
                 default:
                     break;
             }

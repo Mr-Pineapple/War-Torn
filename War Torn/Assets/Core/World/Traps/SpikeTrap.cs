@@ -9,6 +9,7 @@ public class SpikeTrap : TrapBase {
     public SpikeTrap(int damageToInflict) : base(damage) { }
 
     protected override void OnTriggerEnter(Collider other) {
-        Debug.Log("HEY");
+        base.OnTriggerEnter(other);
+        Debug.Log("Entity Walked in a Spike Trap");
     }
 }

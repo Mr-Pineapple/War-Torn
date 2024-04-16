@@ -20,6 +20,7 @@ public class ShootNode : Node {
     public override NodeState Evaluate() {
         agent.isStopped = true;
         ai.transform.LookAt(player);
+        Debug.Log("Player Shot");
         return NodeState.SUCCESS;
     }
 

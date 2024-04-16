@@ -8,7 +8,7 @@ using UnityEngine;
  * Used for global game controls
  */
 public class GameManager : MonoBehaviour {
-    bool isGamePaused = false;
+    bool isGamePaused;
 
     void OnApplicationFocus(bool focus) {
         if (focus) Cursor.lockState = CursorLockMode.Locked;

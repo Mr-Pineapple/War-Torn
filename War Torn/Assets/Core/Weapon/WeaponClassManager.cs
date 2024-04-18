@@ -26,6 +26,10 @@ public class WeaponClassManager : MonoBehaviour {
         actions.SetWeapon(weapon);
     }
 
+    public WeaponManager getCurrentWeapon() {
+        return weapons[currentWeaponIndex];
+    }
+
     public void ChangeWeapon(float direction) {
         weapons[currentWeaponIndex].gameObject.SetActive(false);
         if(direction<0) {

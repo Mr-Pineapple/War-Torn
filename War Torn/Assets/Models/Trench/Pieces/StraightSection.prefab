@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91022e075256d454d82a1e5865233e72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoBox: {fileID: 919132149155446097, guid: 9dc4322027b204f4fb6cfa85e090c73d, type: 3}
+  ammoBox: {fileID: 71202111401314936, guid: 6689770fd78560740a9078a538e0f9ea, type: 3}
   xRange: 4.5
   zRange: 1.5
   amountToSpawn: 1

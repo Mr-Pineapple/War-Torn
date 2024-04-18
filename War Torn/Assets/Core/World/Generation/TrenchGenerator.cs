@@ -20,6 +20,7 @@ public class TrenchGenerator : MonoBehaviour {
     private bool generationOver;
 
     [SerializeField] Canvas loadingCanvas;
+    [SerializeField] GameObject gameManager;
 
     private void Start() {
         defaultJigsaw = nextJigsawPieceLocation;
@@ -61,6 +62,12 @@ public class TrenchGenerator : MonoBehaviour {
         generationOver = true;
         GenerateNextLevelPiece();
         EndLoadingScreen();
+        StartMusic();
+    }
+
+    private void StartMusic() {
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.Play();
     }
 
     private void EndLoadingScreen() {

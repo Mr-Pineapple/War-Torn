@@ -27,6 +27,7 @@ public class WeaponManager : MonoBehaviour {
     WeaponRecoil recoil;
     public Transform leftHandTarget, leftHandHint;
     WeaponClassManager weaponClass;
+    [SerializeField] GameObject gameManager;
 
 
     void Start() {
@@ -51,6 +52,7 @@ public class WeaponManager : MonoBehaviour {
     }
 
     bool canFire() {
+        if (gameManager.GetComponent<GameManager>().isGamePaused) return false;
         fireRateTime += Time.deltaTime;
         if (fireRateTime < fireRate) return false;
         if (ammo.currentAmmo == 0) return false;

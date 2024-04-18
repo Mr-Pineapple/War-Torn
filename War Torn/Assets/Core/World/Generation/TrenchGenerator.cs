@@ -19,6 +19,8 @@ public class TrenchGenerator : MonoBehaviour {
     private float cooldownTimer;
     private bool generationOver;
 
+    [SerializeField] Canvas loadingCanvas;
+
     private void Start() {
         defaultJigsaw = nextJigsawPieceLocation;
         generatedLevelParts = new List<Transform>();
@@ -58,6 +60,11 @@ public class TrenchGenerator : MonoBehaviour {
     private void FinishGeneration() {
         generationOver = true;
         GenerateNextLevelPiece();
+        EndLoadingScreen();
+    }
+
+    private void EndLoadingScreen() {
+        loadingCanvas.enabled = false;
     }
 
     private void GenerateNextLevelPiece() {

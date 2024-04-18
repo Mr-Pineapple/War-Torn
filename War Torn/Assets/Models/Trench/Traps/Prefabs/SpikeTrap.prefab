@@ -67,7 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ad6551f06f282d4397afa7779896d20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageToInflict: 10
+  damageToInflict: 5
 --- !u!1001 &355951537943169798
 PrefabInstance:
   m_ObjectHideFlags: 0

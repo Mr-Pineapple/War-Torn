@@ -8,10 +8,14 @@ public class PauseMenu : MonoBehaviour {
 
     public void PauseGame() {
         canvas.gameObject.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void ResumeGame() {
         canvas.gameObject.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     public void QuitGame() {

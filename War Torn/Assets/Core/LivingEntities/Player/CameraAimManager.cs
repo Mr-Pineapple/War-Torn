@@ -27,6 +27,7 @@ public class CameraAimManager : MonoBehaviour {
     [SerializeField] float crouchCameraHeight = 0.6f;
     [SerializeField] float shoulderSwapSpeed = 10;
     MovementManager moving;
+    [SerializeField] GameObject gameManager;
 
     void Start() {
         Cursor.lockState = CursorLockMode.Locked;
@@ -45,6 +46,7 @@ public class CameraAimManager : MonoBehaviour {
     }
 
     void Update() {
+        if (gameManager.GetComponent<GameManager>().isGamePaused) return;
         xAxis += Input.GetAxisRaw("Mouse X") * mouseSensitivity;
         yAxis -= Input.GetAxisRaw("Mouse Y") * mouseSensitivity;
         yAxis = Mathf.Clamp(yAxis, -50, 80);

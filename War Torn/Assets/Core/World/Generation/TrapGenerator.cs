@@ -6,6 +6,6 @@ public class TrapGenerator : MonoBehaviour {
 
     private void Start() {
         Vector3 randomPosition = new Vector3(gameObject.transform.localPosition.x + Random.Range(-xRange, xRange), 0, gameObject.transform.localPosition.z + Random.Range(-zRange, zRange));
-        Instantiate(trap, randomPosition, gameObject.transform.rotation * Quaternion.identity * gameObject.transform.localRotation);
+        Instantiate(trap, randomPosition, gameObject.transform.rotation * Quaternion.identity * gameObject.transform.localRotation, gameObject.transform);
     }
 }

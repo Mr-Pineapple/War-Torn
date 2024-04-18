@@ -5,6 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour {
     [SerializeField] Canvas canvas;
+    [SerializeField] GameObject gameManager;
+
+    private void Start() {
+        if(gameManager.GetComponent<GameManager>().isGamePaused) {
+            canvas.gameObject.SetActive(false);
+        }
+    }
 
     public void PauseGame() {
         canvas.gameObject.SetActive(true);
@@ -16,6 +23,7 @@ public class PauseMenu : MonoBehaviour {
         canvas.gameObject.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        gameManager.GetComponent<GameManager>().pauseGame(false);
     }
 
     public void QuitGame() {

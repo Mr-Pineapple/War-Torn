@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8453982180261159578}
   - component: {fileID: 8950106564653699837}
   - component: {fileID: 2386290960746670920}
+  - component: {fileID: -2093351420538408635}
   m_Layer: 0
   m_Name: StraightSection
   m_TagString: Untagged
@@ -108,6 +109,21 @@ MonoBehaviour:
   xRange: 4.5
   zRange: 1.5
   amountToSpawn: 1
+--- !u!114 &-2093351420538408635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134030087804059837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 088b577fe7ee99e42a7ad807712e9cd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 675476845656041287, guid: 7efc0e63b2d77f84a94b6a15fdcab86f, type: 3}
+  xRange: 4.5
+  zRange: 1.5
 --- !u!1 &1270786664998973834
 GameObject:
   m_ObjectHideFlags: 0

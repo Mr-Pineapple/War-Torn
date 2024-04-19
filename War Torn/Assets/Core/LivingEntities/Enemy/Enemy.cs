@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour {
-    [SerializeField] Transform player;
+    [SerializeField] GameObject player;
 
     private float startingHealth;
     private float currentHealth;
@@ -28,10 +28,12 @@ public class Enemy : MonoBehaviour {
 
     //TODO: more health stuff, clamping the current health from 0 to the startingHealth as well as damage logic
 
+
     private void Awake() {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
+        player = GameObject.Find("Player");
     }
 
     private void Start() {
@@ -40,10 +42,10 @@ public class Enemy : MonoBehaviour {
     }
 
     private void ConstructBehaviourTree() {
-        ChaseNode chaseNode = new ChaseNode(player, agent, this, animator);
-        RangeNode chasingRangeNode = new RangeNode(chasingRange, player, transform);
-        RangeNode shootingRangeNode = new RangeNode(shootingRange, player, transform);
-        ShootNode shootNode = new ShootNode(agent, this, player);
+        ChaseNode chaseNode = new ChaseNode(player.transform, agent, this, animator);
+        RangeNode chasingRangeNode = new RangeNode(chasingRange, player.transform, transform);
+        RangeNode shootingRangeNode = new RangeNode(shootingRange, player.transform, transform);
+        ShootNode shootNode = new ShootNode(agent, this, player.transform);
         HealthNode idle = new HealthNode();
 
         Sequence chaseSequence = new Sequence(new List<Node> { chasingRangeNode, chaseNode });
@@ -57,6 +59,8 @@ public class Enemy : MonoBehaviour {
         if (rb.velocity.magnitude < 0.1) {
             animator.SetBool("isWalking", false);
         }
+
+        
 
 
 #pragma warning disable CS0618
@@ -96,7 +100,7 @@ public class Enemy : MonoBehaviour {
     [Obsolete("LookAtPlayer is deprecated, as usage of behavior trees are being implemented.")]
     void LookAtPlayer() {
         //Difference between the player position and enemys position to give a direction
-        Vector3 directionFromEnemyToTarget = player.position - transform.position;
+        Vector3 directionFromEnemyToTarget = player.transform.position - transform.position;
 
         //Block the y rotation because why would I want to do some more work with animations
         //Plus the player doesn't jump for the same reason

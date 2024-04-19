@@ -8,6 +8,10 @@ public class MainMenu : MonoBehaviour {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    private void Start() {
+        Cursor.lockState = CursorLockMode.None;
+    }
+
     public void QuitGame() {
         Application.Quit();
     }

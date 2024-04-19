@@ -1,22 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.ConstrainedExecution;
-using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /**
  * Used for global game controls
  */
 public class GameManager : MonoBehaviour {
-    public bool isGamePaused;
+    [HideInInspector] public bool isGamePaused;
     [SerializeField] GameObject pauseMenu;
+    [SerializeField] GameObject endScreen;
 
     void OnApplicationFocus(bool focus) {
         if (focus) Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Start() {
+        Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
+        QualitySettings.vSyncCount = 0;
     }
 
     private void Update() {
@@ -39,6 +39,10 @@ public class GameManager : MonoBehaviour {
             Time.timeScale = 1;
             isGamePaused = false;
         }
+    }
+
+    public void endGame() {
+        SceneManager.LoadScene(0);
     }
 
     public enum Controls {

@@ -8,6 +8,7 @@ public class Player : MonoBehaviour, IDamageable {
     [SerializeField] int maxHealth;
     [SerializeField] int currentHealth;
     public NavMeshSurface navMeshSurface;
+    [SerializeField] GameObject gameManager;
 
     private void Start() {
         currentHealth = maxHealth;
@@ -33,5 +34,11 @@ public class Player : MonoBehaviour, IDamageable {
     [ContextMenu("Bake NavMesh")]
     void bake() {
         navMeshSurface.BuildNavMesh();
+    }
+
+    private void Update() {
+        if(getCurrentHealth() < 1) {
+            gameManager.GetComponent<GameManager>().endGame();
+        }
     }
 }
